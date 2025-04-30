@@ -18,7 +18,7 @@ export default function Welcome() {
           Monte sua lista de compras e não esqueça mais 
           o que precisa comprar ao sair de casa!!!
         </Text>
-        <Link style={StyleSheet.button} href={"/home"}>
+        <Link style={styles.button} href={"/home"}>
         <Text style={styles.buttonText}>Acessar</Text>
         </Link>
       </View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: '#dadada',
+    backgroundColor: '#gray',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: '5%'
