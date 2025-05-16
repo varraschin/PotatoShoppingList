@@ -2,6 +2,7 @@ import { FlatList, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacit
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
+import ItemList from '../components/ItemList';
 
 export default function Home() {
   const [textInput, setTextInput] = useState('');
@@ -23,6 +24,17 @@ export default function Home() {
     }
   }
 
+
+  const markItemBought = itemId =>{
+    const newItems = items.map((item) => {
+      if (item.id == itemId) {
+        return {...item, bought: true}
+      }
+      return item;
+    });
+    setItems(newItems);
+  }
+
   return (
     <SafeAreaView style={{ flex: 1}}>
       <ImageBackground source={require('../assets/background.jpg')} style={{flex: 1, justifyContent: 'flex-start'}} resizeMode='repeat'>
@@ -36,7 +48,7 @@ export default function Home() {
           data={items}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) =>
-            <Text style={{color: '#fff', fontSize: 30}}>{item.name}</Text>
+            <ItemList item={item} />
           }
         />
 
