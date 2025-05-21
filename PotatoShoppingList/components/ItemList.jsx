@@ -2,10 +2,11 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function ItemList({ item }) {
+export default function ItemList({ item, markItem, unmarkItem, removeItem }) {
   return (
     <View style={styles.ItemList}>
-        <Text style={styles.itemToBuy}>{item?.name}</Text>
+        <Text style={item.bought ? style.itemBought : styles.itemToBuy}>
+            {item?.name}</Text>
         <TouchableOpacity style={styles.actionIcon}>
             <Ionicons name="bag-check-outline" size={24} color="fff" />
         </TouchableOpacity>
